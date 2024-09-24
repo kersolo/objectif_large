@@ -6,16 +6,13 @@ import {
   Card,
   Collapse,
 } from "@material-tailwind/react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import logo_objectifLarge from "../../../public/logo_objectifLarge.svg";
 import NavBarItem from "./NavBarItem";
 import Link from "next/link";
+import { StickyNavbarInterface } from "../services/interfaces/StickyNavbarInterface";
 
-export interface StickyNavbarprops {
-  picture: StaticImageData | string;
-}
-
-export function StickyNavbar({ picture }: StickyNavbarprops) {
+export function StickyNavbar({ picture }: StickyNavbarInterface) {
   const [openNav, setOpenNav] = useState(false);
 
   useEffect(() => {
@@ -60,7 +57,7 @@ export function StickyNavbar({ picture }: StickyNavbarprops) {
                 fill="none"
                 className="h-6 w-6"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="white"
                 strokeWidth={2}
               >
                 <path
@@ -74,7 +71,7 @@ export function StickyNavbar({ picture }: StickyNavbarprops) {
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 strokeWidth={2}
               >
                 <path
@@ -90,21 +87,16 @@ export function StickyNavbar({ picture }: StickyNavbarprops) {
           <div className="container mx-auto">{navList}</div>
         </Collapse>
       </Navbar>
-      <div className="mx-auto max-w-screen-lg py-12 ">
-        <Typography variant="h2" color="blue-gray" className="mb-2">
+      <div className="mx-auto max-w-screen-lg py-12">
+        <Typography variant="h2" color="blue-gray" className="mb-8">
           OBJECTIF LARGE <br /> Des Professionnels en Services Nautiques
         </Typography>
-        <Card className="mb-12 overflow-hidden">
+        <Card className="mb-8 overflow-hidden">
           <Image
             className="h-[20rem] w-full object-cover object-center"
             src={picture}
             alt="image de bateau"
           />
-          {/* <img
-            alt="nature"
-            className="h-[20rem] w-full object-cover object-center"
-            src={picture}
-          /> */}
         </Card>
       </div>
     </>
