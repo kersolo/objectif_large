@@ -1,23 +1,26 @@
 "use client";
-import { StickyNavbar } from "./components/StickyNavbar";
-import homeBanner from "../../public/homeBanner.jpg";
-import { Timeline } from "@material-tailwind/react";
-import { TimeLineItemsConnector } from "./components/TimeLineItems/TimeLineItemsConnector";
-import { TimeLineItemsEnd } from "./components/TimeLineItems/TimeLineItemsEnd";
+import { Accordion } from "@material-tailwind/react";
+import { AccordionDefault } from "./components/AccordionDefault";
+import Section from "./services/utils/Section";
 
 export default function Home() {
   return (
     <>
-      <StickyNavbar picture={homeBanner} />
-      <div className="mx-auto max-w-screen-lg">
-        <Timeline>
-          <TimeLineItemsConnector info="Organisation d'évènements nautiques" />
-          <TimeLineItemsConnector info="Skippage, école de croisière" />
-          <TimeLineItemsConnector info="Convoyages toutes destinations" />
-          <TimeLineItemsConnector info="Prise en main personnalisée de votre voilier, de votre yacht à moteurs" />
-          <TimeLineItemsEnd info="Coaching d'équipage de voiliers et de yachts à moteurs, pour vos croisières familiales, vos régates entre amis, vos régates entreprises" />
-        </Timeline>
-      </div>
+      <Section>
+        <Accordion open={true}>
+          <AccordionDefault
+            isCursor={true}
+            title="Ce que nous proposons"
+            body={[
+              "Organisation d'évènements nautiques",
+              "Skippage, école de croisière",
+              "Convoyages toutes destinations",
+              "Prise en main personnalisée de votre voilier, de votre yacht à moteurs",
+              "Coaching d'équipage de voiliers et de yachts à moteurs, pour vos croisières familiales, vos régates entre amis, vos régates entreprises",
+            ]}
+          />
+        </Accordion>
+      </Section>
     </>
   );
 }

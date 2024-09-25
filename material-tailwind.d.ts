@@ -44,6 +44,12 @@ declare module "@material-tailwind/react" {
   export interface CardProps extends EventCapture {
     placeholder?: unknown;
   }
+  export interface AccordionProps extends EventCapture {
+    placeholder?: unknown;
+  }
+  export interface AccordionHeaderProps extends EventCapture {
+    placeholder?: unknown;
+  }
 
   export interface RadioProps extends EventCapture {
     crossOrigin?: unknown;

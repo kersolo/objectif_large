@@ -1,65 +1,50 @@
 "use client";
 import React from "react";
-import { StickyNavbar } from "../components/StickyNavbar";
-import ourValuesBanner from "../../../public/ourValuesBanner.jpg";
-import { Typography } from "@material-tailwind/react";
-import { Typographydefault } from "../components/Typographydefault";
+import { Accordion } from "@material-tailwind/react";
+import { AccordionDefault } from "../components/AccordionDefault";
+import Section from "../services/utils/Section";
 
-export interface testonPros {
-  variant: "h4";
-  color: "blue-gray";
-  className: "leading-none text-2xl";
-}
 export default function OurValues() {
+  const [open, setOpen] = React.useState(1);
+
+  const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
+
   return (
     <>
-      <StickyNavbar picture={ourValuesBanner} />
-      <div className="mx-auto max-w-screen-lg flex flex-col gap-7">
-        <Typography
-          variant="h4"
-          color="blue-gray"
-          className="leading-none text-2xl"
-        >
-          Nos Atouts
-        </Typography>
-        <Typography
-          variant="paragraph"
-          color="blue-gray"
-          className="leading-none text-2xl"
-        >
-          Une équipe de professionnels soudée
-          <br />
-          Des compétences variées en navigation, météorologie, mécanique,
-          voilerie, construction composite, matelotage, électricité,
-          informatique, gestion de navire & d'équipage, sécurité & urgence
-          médicale, logistique, cuisine, ...
-          <br />
-          Des brevets de navigation reconnus au niveau international,
-          normalisations STCW
-        </Typography>
-        <Typography
-          variant="paragraph"
-          color="blue-gray"
-          className="leading-none text-2xl"
-        >
-          Une prestation définie par un contrat
-          <br />
-          Une équipe à terre qui suit en permanence les équipes embarquées:
-          géo-localisation/tracking, routage, par l'utilisation de moyens de
-          communication modernes entre terre & mer
-        </Typography>
-        <Typography
-          variant="paragraph"
-          color="blue-gray"
-          className="leading-none text-2xl"
-        >
-          Un reporting régulier par nos équipes à terre
-          <br />
-          Un compte rendu systématique de fin de mission
-          <br />
-          Une relation personnalisée avec nos clients
-        </Typography>
-      </div>
+      <Section>
+        <Accordion open={open === 1}>
+          <AccordionDefault
+            title="Nos Atouts"
+            onclick={() => handleOpen(1)}
+            body={[
+              "Une équipe de professionnels soudée",
+              "Des compétences variées en navigation, météorologie, mécanique, voilerie, construction composite, matelotage, électricité, informatique, gestion de navire & d'équipage, sécurité & urgence médicale, logistique, cuisine, ...",
+              "Des brevets de navigation reconnus au niveau international, normalisations STCW",
+            ]}
+          />
+        </Accordion>
+        <Accordion open={open === 2}>
+          <AccordionDefault
+            title="Nos Garanties"
+            onclick={() => handleOpen(2)}
+            body={[
+              "Une prestation définie par un contrat",
+              "Une équipe à terre qui suit en permanence les équipes embarquées: géo-localisation/tracking, routage, par l'utilisation de moyens de communication modernes entre terre & mer",
+            ]}
+          />
+        </Accordion>
+        <Accordion open={open === 3}>
+          <AccordionDefault
+            title="Nos Différences"
+            onclick={() => handleOpen(3)}
+            body={[
+              "Un reporting régulier par nos équipes à terre",
+              "Un compte rendu systématique de fin de mission",
+              "Une relation personnalisée avec nos clients",
+            ]}
+          />
+        </Accordion>
+      </Section>
     </>
   );
 }

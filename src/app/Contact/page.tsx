@@ -1,16 +1,11 @@
 "use client";
 import React from "react";
-import { StickyNavbar } from "../components/StickyNavbar";
-import contactBanner from "../../../public/contactBanner.jpg";
-import { Typography, Timeline } from "@material-tailwind/react";
-import { TimeLineItemsConnector } from "../components/TimeLineItems/TimeLineItemsConnector";
-import { TimeLineItemsEnd } from "../components/TimeLineItems/TimeLineItemsEnd";
+import { Typography } from "@material-tailwind/react";
 import { ContactForm } from "../components/ContactForm/ContactForm";
 
 export default function Contact() {
   return (
     <>
-      <StickyNavbar picture={contactBanner} />
       <div className="mx-auto max-w-screen-lg">
         <Typography
           variant="h4"

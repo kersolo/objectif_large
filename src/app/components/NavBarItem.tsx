@@ -18,9 +18,7 @@ export default function NavBarItem({ pathName, name }: NavBarItemPropsType) {
       className="flex items-center gap-x-2 p-1 font-medium"
     >
       <Link
-        className={`link ${
-          pathname === pathName && "text-indigo-900 font-bold"
-        }`}
+        className={`link ${pathname === pathName && "text-blue-600 "}`}
         href={pathName}
       >
         {name}
