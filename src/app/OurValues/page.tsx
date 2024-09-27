@@ -3,6 +3,8 @@ import React from "react";
 import { Accordion } from "@material-tailwind/react";
 import { AccordionDefault } from "../components/AccordionDefault";
 import Section from "../services/utils/Section";
+import { StickyNavbar } from "../components/StickyNavbar";
+import ourValuesBanner from "../../../public/ourValuesBanner.jpg";
 
 export default function OurValues() {
   const [open, setOpen] = React.useState(1);
@@ -11,6 +13,7 @@ export default function OurValues() {
 
   return (
     <>
+      <StickyNavbar bannerImage={ourValuesBanner} />
       <Section>
         <Accordion open={open === 1}>
           <AccordionDefault

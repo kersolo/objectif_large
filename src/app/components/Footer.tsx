@@ -4,8 +4,8 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="relative w-full mt-20 ">
-      <div className="mx-auto w-full max-w-7xl px-8 ">
+    <footer className="relative w-full mt-20">
+      <div className="mx-auto w-full px-8 ">
         <Typography
           variant="paragraph"
           className="mx-auto max-w-screen-lg text-4xl italic"

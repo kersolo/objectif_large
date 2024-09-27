@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
-import { Accordion, Timeline, Typography } from "@material-tailwind/react";
+import { Accordion } from "@material-tailwind/react";
 import { AccordionDefault } from "../components/AccordionDefault";
 import Section from "../services/utils/Section";
+import { StickyNavbar } from "../components/StickyNavbar";
+import whoAreWeBanner from "../../../public/whoAreWeBanner.jpg";
 
 export default function WhoAreWe() {
   return (
     <>
+      <StickyNavbar bannerImage={whoAreWeBanner} />
       <Section>
         <Accordion open={true}>
           <AccordionDefault

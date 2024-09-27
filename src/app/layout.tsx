@@ -4,7 +4,6 @@ import "./globals.css";
 import "../../material-tailwind.d.ts";
 import { themeProvider } from "./services/theme/themeProvider";
 import { Footer } from "./components/Footer";
-import { StickyNavbar } from "./components/StickyNavbar";
 
 const HeadHtml = () => {
   return (
@@ -42,7 +41,8 @@ export default function RootLayout({
       <html lang="fr">
         <HeadHtml />
         <body>
-          <StickyNavbar /> {children} <Footer />
+          {children}
+          <Footer />
         </body>
       </html>
     </ThemeProvider>
