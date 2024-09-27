@@ -1,19 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {
-  Navbar,
-  Typography,
-  IconButton,
-  Card,
-  Collapse,
-} from "@material-tailwind/react";
-import Image, { StaticImageData } from "next/image";
+import { Navbar, IconButton, Collapse } from "@material-tailwind/react";
+import Image from "next/image";
 import logo_objectifLarge from "../../../public/logo_objectifLarge.svg";
 import NavBarItem from "./NavBarItem";
 import Link from "next/link";
-import { StickyNavbarInterface } from "../services/interfaces/StickyNavbarInterface";
 
-export function StickyNavbar({ bannerImage }: StickyNavbarInterface) {
+export function StickyNavbar() {
   const [openNav, setOpenNav] = useState(false);
 
   useEffect(() => {
@@ -33,8 +26,6 @@ export function StickyNavbar({ bannerImage }: StickyNavbarInterface) {
       <NavBarItem pathName="/Contact" name="CONTACT" />
     </ul>
   );
-
-  //className={`site-off desktop-hide ${showMenu ? "show-menu" : ""}`}
 
   return (
     <>
@@ -90,19 +81,6 @@ export function StickyNavbar({ bannerImage }: StickyNavbarInterface) {
           <div className="container mx-auto">{navList}</div>
         </Collapse>
       </Navbar>
-      <div className="mx-auto px-5 sm:px-16 py-12 ">
-        <Typography variant="h2" color="blue-gray" className="mb-8">
-          OBJECTIF LARGE <br /> Des Professionnels en Services Nautiques
-        </Typography>
-        <Card className="mb-8 overflow-hidden">
-          <Image
-            className="h-[20rem] w-full object-cover object-center"
-            src={bannerImage}
-            alt="image de bateau"
-            priority={false}
-          />
-        </Card>
-      </div>
     </>
   );
 }

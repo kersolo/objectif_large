@@ -2,13 +2,13 @@
 import { Accordion } from "@material-tailwind/react";
 import { AccordionDefault } from "./components/AccordionDefault";
 import Section from "./services/utils/Section";
-import { StickyNavbar } from "./components/StickyNavbar";
 import homeBanner from "../../public/homeBanner.jpg";
+import { Header } from "./components/Header";
 
 export default function Home() {
   return (
     <>
-      <StickyNavbar bannerImage={homeBanner} />
+      <Header bannerImage={homeBanner} />
       <Section>
         <Accordion open={true}>
           <AccordionDefault

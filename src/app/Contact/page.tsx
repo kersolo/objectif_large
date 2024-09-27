@@ -2,13 +2,13 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
 import { ContactForm } from "../components/ContactForm/ContactForm";
-import { StickyNavbar } from "../components/StickyNavbar";
 import contactBanner from "../../../public/contactBanner.jpg";
+import { Header } from "../components/Header";
 
 export default function Contact() {
   return (
     <>
-      <StickyNavbar bannerImage={contactBanner} />
+      <Header bannerImage={contactBanner} />
       <div className="mx-auto max-w-screen-lg">
         <Typography
           variant="h4"
