@@ -5,8 +5,11 @@ import contactBanner from "../../../public/contactBanner.jpg";
 import { Header } from "../components/Header";
 import Section from "../services/utils/Section";
 import { TypographyDefault } from "../components/TypographyDefault";
+import { useMediaQuery } from "../services/hooks/useMediaQuery";
 
 export default function Contact() {
+  const isMobile = useMediaQuery("(max-width: 530px)");
+
   return (
     <>
       <Header bannerImage={contactBanner} />
@@ -39,13 +42,18 @@ export default function Contact() {
               className="text-lg mt-10 font-bold uppercase"
               children={["objectif large"]}
             />
-            <TypographyDefault
-              className="text-lg"
-              children={[
-                "+33 6 77 03 62 75",
-                "@mail: objectif.large@orange.fr",
-              ]}
-            />
+            {isMobile ? (
+              <a className="text-lg" href="tel:+33677036275">
+                +33 6 77 03 62 75
+              </a>
+            ) : (
+              <a className="text-lg" href="callto:+33677036275">
+                +33 6 77 03 62 75
+              </a>
+            )}
+            <a className="text-lg" href="mailto:objectif.large@orange.fr">
+              objectif.large@orange.fr
+            </a>
             <TypographyDefault
               className="leading-none text-2xl mt-10 font-bold "
               children={["À très bientôt ..."]}
