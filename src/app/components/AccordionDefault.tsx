@@ -3,41 +3,64 @@ import {
   AccordionHeader,
   AccordionBody,
   Typography,
+  Accordion,
 } from "@material-tailwind/react";
+import Image from "next/image";
+import iconOpenClose from "../../../public/iconOpenClose.svg";
+import { AccordionDefaultInterface } from "../services/interfaces/AccordionDefaultInterface";
 
-export interface AccordionDefaultInterface {
-  title: string;
-  body: string[];
-  onclick?: () => void;
-  isCursor?: boolean;
-}
+const CUSTOM_ANIMATION = {
+  mount: { scale: 1, transition: "all 500ms" },
+  unmount: { scale: 1, transition: "all 500ms" },
+};
 
 export function AccordionDefault({
   title,
   onclick,
   body,
   isCursor,
+  open,
 }: AccordionDefaultInterface) {
   return (
     <>
-      <AccordionHeader
-        className={`leading-none text-3xl text-blue-gray-900 ${
-          isCursor && "cursor-default"
-        }`}
-        onClick={onclick}
-      >
-        {title}
-      </AccordionHeader>
-      <AccordionBody className="flex flex-col gap-3">
-        {body.map((el, index) => (
-          <div key={index}>
-            <Typography className="leading-none text-2xl text-blue-gray-900">
-              {el}
-            </Typography>
-            <hr />
-          </div>
-        ))}
-      </AccordionBody>
+      <Accordion open={open} animate={CUSTOM_ANIMATION}>
+        <AccordionHeader
+          className={`leading-none text-3xl text-blue-gray-900 ${
+            isCursor ? "flex justify-start gap-5" : "cursor-default"
+          }  `}
+          onClick={onclick}
+        >
+          {title}
+          {isCursor && (
+            <Image
+              className={`${
+                !open && "rotate-180"
+              } transition-all ease-in-out duration-500`}
+              src={iconOpenClose}
+              alt="icon pour fermer ou ouvrir"
+              priority={true}
+            />
+            // <Image
+            //   className={`${
+            //     !open && "flex rotate-180 transition-all ease-in-out delay-150"
+            //   } `}
+            //   src={iconOpenClose}
+            //   alt="icon pour fermer ou ouvrir"
+            //   priority={true}
+            // />
+          )}
+        </AccordionHeader>
+        <AccordionBody className="flex flex-col gap-3">
+          {body.map((el, index) => (
+            <div key={index}>
+              <Typography className="leading-none text-2xl text-blue-gray-900">
+                {el}
+              </Typography>
+              <hr />
+            </div>
+          ))}
+        </AccordionBody>
+      </Accordion>
     </>
   );
 }

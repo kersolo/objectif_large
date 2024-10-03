@@ -2,10 +2,12 @@ import { Card, Button, Textarea } from "@material-tailwind/react";
 import { InputDefault } from "./InputDefault";
 
 export function ContactForm() {
+  //TEST EmailJS pour envoyer data du form à l'adress mail
+
   return (
     <form>
-      <Card className=" flex gap-10 p-5 ">
-        <div className="flex gap-4">
+      <Card className=" flex gap-10 p-5">
+        <div className="md:flex md:gap-4">
           <InputDefault label="Votre nom" name="lastname" type="text" />
           <InputDefault label="Votre prénom" name="firstname" type="text" />
         </div>

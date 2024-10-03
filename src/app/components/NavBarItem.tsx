@@ -2,13 +2,9 @@ import { Typography } from "@material-tailwind/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { NavBarItemInterface } from "../services/interfaces/NavBarItemInterface";
 
-type NavBarItemPropsType = {
-  pathName: string;
-  name: string;
-};
-
-export default function NavBarItem({ pathName, name }: NavBarItemPropsType) {
+export default function NavBarItem({ pathName, name }: NavBarItemInterface) {
   const pathname = usePathname();
   return (
     <Typography
