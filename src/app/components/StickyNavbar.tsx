@@ -5,9 +5,11 @@ import Image from "next/image";
 import logo_objectifLarge from "../../../public/logo_objectifLarge.svg";
 import NavBarItem from "./NavBarItem";
 import Link from "next/link";
+import { useMediaQuery } from "../services/hooks/useMediaQuery";
 
 export function StickyNavbar() {
   const [openNav, setOpenNav] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 719px)");
 
   useEffect(() => {
     window.addEventListener(
@@ -18,12 +20,21 @@ export function StickyNavbar() {
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 md:mb-0 md:mt-0 md:flex-row sm:items-end md:gap-6 ">
-      <NavBarItem pathName="/WhoAreWe" name="QUI SOMMES NOUS ?" />
       <NavBarItem
+        onclick={() => setOpenNav(isMobile && !openNav)}
+        pathName="/WhoAreWe"
+        name="QUI SOMMES NOUS ?"
+      />
+      <NavBarItem
+        onclick={() => setOpenNav(isMobile && !openNav)}
         pathName="/OurValues"
         name="NOS ATOUTS, NOS GARANTIES, NOS DIFFÉRENCES ..."
       />
-      <NavBarItem pathName="/Contact" name="CONTACT" />
+      <NavBarItem
+        onclick={() => setOpenNav(isMobile && !openNav)}
+        pathName="/Contact"
+        name="CONTACT"
+      />
     </ul>
   );
 
@@ -31,7 +42,7 @@ export function StickyNavbar() {
     <>
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 border-none bg-blue-gray-900">
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-          <Link href={"/"}>
+          <Link onClick={() => setOpenNav(isMobile && !openNav)} href={"/"}>
             <Image
               src={logo_objectifLarge}
               priority={true}

@@ -7,6 +7,14 @@ export function InputDefault<T extends FieldValues>({
   name,
   type,
   register,
+  errors,
 }: InputDefaultInterface<T>) {
-  return <Input label={label} type={type} {...register(name)} />;
+  return (
+    <div>
+      <Input label={label} type={type} {...register(name)} />
+      {errors && (
+        <small className="text-red-600 ml-small">{errors[name]?.message}</small>
+      )}
+    </div>
+  );
 }

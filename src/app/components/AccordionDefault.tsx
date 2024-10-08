@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 import iconOpenClose from "../../../public/iconOpenClose.svg";
 import { AccordionDefaultInterface } from "../services/interfaces/AccordionDefaultInterface";
+import { useMediaQuery } from "../services/hooks/useMediaQuery";
 
 const CUSTOM_ANIMATION = {
   mount: { scale: 1, transition: "all 500ms" },
@@ -21,13 +22,14 @@ export function AccordionDefault({
   isCursor,
   open,
 }: AccordionDefaultInterface) {
+  const isMobile = useMediaQuery("(max-width: 530px)");
   return (
     <>
       <Accordion open={open} animate={CUSTOM_ANIMATION}>
         <AccordionHeader
           className={`leading-none text-3xl text-blue-gray-900 ${
             isCursor ? "flex justify-start gap-5" : "cursor-default"
-          }  `}
+          } ${isMobile && "text-2xl"} `}
           onClick={onclick}
         >
           {title}
@@ -53,7 +55,11 @@ export function AccordionDefault({
         <AccordionBody className="flex flex-col gap-3">
           {body.map((el, index) => (
             <div key={index}>
-              <Typography className="leading-none text-2xl text-blue-gray-900">
+              <Typography
+                className={`leading-none text-2xl text-blue-gray-900" ${
+                  isMobile && "text-xl"
+                }`}
+              >
                 {el}
               </Typography>
               <hr />

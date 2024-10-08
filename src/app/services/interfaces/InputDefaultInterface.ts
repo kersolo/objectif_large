@@ -5,4 +5,12 @@ export interface InputDefaultInterface<T extends FieldValues> {
   name: Path<T>;
   type: string;
   register: UseFormRegister<T>;
+  errors?: any;
+}
+
+export interface TextareaDefaultInterface<T extends FieldValues> {
+  label: string;
+  name: Path<T>;
+  register: UseFormRegister<T>;
+  errors?: any;
 }

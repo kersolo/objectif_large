@@ -19,9 +19,9 @@ export default function Contact() {
             "Contactez nous, nous parlerons ensemble de votre projet, nous analyserons ensemble vos besoins",
           ]}
           variant="h4"
-          className="mb-16 text-3xl"
+          className={`mb-16 ${isMobile ? "text-2xl" : "text-3xl"}  `}
         />
-        <div className="md:flex md:justify-between">
+        <div className="lg:flex lg:justify-between">
           <div className="flex flex-col">
             <TypographyDefault
               children={[
@@ -55,7 +55,7 @@ export default function Contact() {
               objectif.large@orange.fr
             </a>
             <TypographyDefault
-              className="leading-none text-2xl mt-10 font-bold "
+              className="mt-10 font-bold "
               children={["À très bientôt ..."]}
             />
           </div>
