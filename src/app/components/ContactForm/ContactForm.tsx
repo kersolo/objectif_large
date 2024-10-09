@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { TextareaDefault } from "./TextareaDefault";
 import { RegisterFormSchema } from "@/app/services/yupSchema/ContactFormSchema";
 import { UseFormInterface } from "@/app/services/interfaces/UseFormInterface";
+import emailjs from "@emailjs/browser";
 
 export function ContactForm() {
   const isMobile = useMediaQuery("(max-width: 700px)");
@@ -19,8 +20,28 @@ export function ContactForm() {
     resolver: yupResolver(RegisterFormSchema),
   });
 
-  const onSubmit: SubmitHandler<UseFormInterface> = async (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<UseFormInterface> = async (data, e) => {
+    e?.preventDefault();
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
+        {
+          firstname: data.firstname,
+          lastname: data.lastname,
+          email: data.email,
+          tel: data.phoneNumber,
+          project: data.project,
+        },
+        process.env.NEXT_PUBLIC_PUBLIC_KEY as string
+      )
+      .then((res) => {
+        console.log("SUCCESS!");
+      })
+      .catch((err) => {
+        console.log("FAILED...", err.text);
+      });
   };
 
   return (
@@ -28,15 +49,15 @@ export function ContactForm() {
       <Card className=" flex gap-10 p-5">
         <div className={`flex gap-4 ${isMobile && "flex flex-col gap-10"}`}>
           <InputDefault
-            label="Votre nom"
-            name="lastname"
+            label="Votre prénom"
+            name="firstname"
             type="text"
             register={register}
             errors={errors}
           />
           <InputDefault
-            label="Votre prénom"
-            name="firstname"
+            label="Votre nom"
+            name="lastname"
             type="text"
             register={register}
             errors={errors}
