@@ -8,9 +8,12 @@ import { TextareaDefault } from "./TextareaDefault";
 import { RegisterFormSchema } from "@/app/services/yupSchema/ContactFormSchema";
 import { UseFormInterface } from "@/app/services/interfaces/UseFormInterface";
 import emailjs from "@emailjs/browser";
+import { DialogDefault } from "../DialogDefault";
+import { useState } from "react";
 
 export function ContactForm() {
   const isMobile = useMediaQuery("(max-width: 700px)");
+  const [open, setOpen] = useState(false);
 
   const {
     register,
@@ -19,6 +22,11 @@ export function ContactForm() {
   } = useForm<UseFormInterface>({
     resolver: yupResolver(RegisterFormSchema),
   });
+
+  // const onSubmit: SubmitHandler<UseFormInterface> = async (data, e) => {
+  //   console.log(data);
+  //   setOpen(!open);
+  // };
 
   const onSubmit: SubmitHandler<UseFormInterface> = async (data, e) => {
     e?.preventDefault();
@@ -42,6 +50,7 @@ export function ContactForm() {
       .catch((err) => {
         console.log("FAILED...", err.text);
       });
+    setOpen(!open);
   };
 
   return (
@@ -83,7 +92,7 @@ export function ContactForm() {
           register={register}
           errors={errors}
         />
-        <Button type="submit">Envoyer</Button>
+        <DialogDefault open={open} />
       </Card>
     </form>
   );

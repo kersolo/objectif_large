@@ -42,14 +42,6 @@ export function AccordionDefault({
               alt="icon pour fermer ou ouvrir"
               priority={true}
             />
-            // <Image
-            //   className={`${
-            //     !open && "flex rotate-180 transition-all ease-in-out delay-150"
-            //   } `}
-            //   src={iconOpenClose}
-            //   alt="icon pour fermer ou ouvrir"
-            //   priority={true}
-            // />
           )}
         </AccordionHeader>
         <AccordionBody className="flex flex-col gap-3">

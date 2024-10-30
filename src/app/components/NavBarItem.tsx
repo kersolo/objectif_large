@@ -15,11 +15,11 @@ export default function NavBarItem({
       as="li"
       variant="small"
       color="white"
-      className="flex items-center gap-x-2 p-1 font-medium"
+      className="flex items-center gap-x-2 p-1 font-medium hover:text-blue-300"
     >
       <Link
         onClick={onclick}
-        className={`link ${pathname === pathName && "text-blue-600 "}`}
+        className={`link ${pathname === pathName && "text-blue-600"}`}
         href={pathName}
       >
         {name}

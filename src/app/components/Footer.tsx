@@ -1,16 +1,19 @@
 import { Typography } from "@material-tailwind/react";
+import { useMediaQuery } from "../services/hooks/useMediaQuery";
 
 const currentYear = new Date().getFullYear();
 
 export function Footer() {
+  const isMobile = useMediaQuery("(max-width: 530px)");
+
   return (
     <footer className="relative w-full mt-20">
-      <div className="mx-auto w-full px-8 ">
+      <div className="mx-auto w-full px-8 text-center">
         <Typography
           variant="paragraph"
-          className="mx-auto max-w-screen-lg text-4xl italic"
+          className={`mx-auto text-4xl italic" ${isMobile && "text-2xl"}`}
         >
-          "La Mer, bien plus qu'un métier ... une passion !..."
+          "La Mer, bien plus qu'un métier... Une passion !..."
         </Typography>
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between ">
           <Typography
