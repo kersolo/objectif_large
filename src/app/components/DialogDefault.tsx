@@ -14,7 +14,7 @@ export function DialogDefault({ open }: { open: boolean }) {
   return (
     <>
       <Button type="submit" onClick={handleOpen} variant="gradient">
-        Open Dialog
+        Envoyer
       </Button>
       <Dialog open={open} handler={handleOpen}>
         <DialogHeader className="text-black">

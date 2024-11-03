@@ -51,8 +51,8 @@ export default function Contact() {
                 +33 6 77 03 62 75
               </a>
             )}
-            <a className="text-lg" href="mailto:objectif.large@orange.fr">
-              objectif.large@orange.fr
+            <a className="text-lg" href="mailto:objectif.largemer@gmail.com">
+              objectif.largemer@gmail.com
             </a>
             <TypographyDefault
               className="mt-10 font-bold "
