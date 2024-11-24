@@ -27,6 +27,18 @@ const HeadHtml = () => {
         type="image/<generated>"
         sizes="<generated>"
       />
+      <meta
+        name="title"
+        content="Objectif Large - Des Professionnels en Services Nautiques"
+      />
+      <meta
+        name="keywords"
+        content="Nautisme, voilier, yacht à moteur, croisière, convoyage, régates, évènements nautiques"
+      />
+      <meta
+        name="descritpion"
+        content="Organisation d'évènements nautiques, Skippage, école de croisière, Convoyages toutes destinations, Prise en main personnalisée de votre voilier, de votre yacht à moteurs, Coaching d'équipage de voiliers et de yachts à moteurs, pour vos croisières familiales, vos régates entre amis, vos régates entreprises"
+      />
       <title>Objectif Large</title>
     </head>
   );
